@@ -6,26 +6,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.kafka.message.repository.MessageRepository;
 import com.example.kafka.sender.MessageProducer;
+import com.example.kafka.consumer.MessageConsumer;
 @RestController
 public class KafkaRestController {
 
     @Autowired
-      public MessageProducer producer;
+      private MessageProducer producer;
 
       @Autowired
-       MessageRepository messageRepo;
+      private MessageConsumer consumer;
+
+      @Autowired
+       private MessageRepository messageRepo;
 
       //Send message to kafka
       @GetMapping("/send")
       public String sendMsg(
       @RequestParam("msg") String message) {
           producer.sendMessage(message);
-          return "" +"'+message +'" + " sent successfully!";
+          consumer.consume(message);
+          return "" + message + " sent successfully!";
       }
       
       //Read all messages
       @GetMapping("/getAll")
       public String getAllMessages() {
+       
          return messageRepo.getAllMessages() ;
       }
 }

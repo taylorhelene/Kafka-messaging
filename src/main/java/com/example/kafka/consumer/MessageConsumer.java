@@ -13,7 +13,7 @@ public class MessageConsumer {
     @Autowired
     private MessageRepository messageRepo;
 
-    @KafkaListener(topics = "${myapp.kafka.topic}", groupId = "xyz")
+    @KafkaListener(topics = "${myapp.kafka.topic}", groupId = "test-consumer-group")
     public void consume(String message) {
        log.info("MESSAGE RECEIVED AT CONSUMER END -> " + message);
        messageRepo.addMessage(message);
