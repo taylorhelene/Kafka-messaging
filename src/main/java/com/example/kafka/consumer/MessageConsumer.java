@@ -1,10 +1,10 @@
-package com.example.kafka;
+package com.example.kafka.consumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-import com.example.kafka.MessageRepository;
+import com.example.kafka.message.repository.MessageRepository;
 
 @Component
 public class MessageConsumer {

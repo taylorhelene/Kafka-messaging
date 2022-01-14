@@ -1,4 +1,4 @@
-package com.example.kafka;
+package com.example.kafka.message.repository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
