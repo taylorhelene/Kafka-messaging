@@ -3,9 +3,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
-import com.example.kafka.MessageRepository;
 import org.springframework.stereotype.Component;
-
+import com.example.kafka.MessageRepository;
 
 @Component
 public class MessageConsumer {
